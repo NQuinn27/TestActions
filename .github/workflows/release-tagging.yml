@@ -3,6 +3,8 @@ name: Post Release PR Merge
 on:
   pull_request:
     types: [closed]
+    branches:
+      - release/next
 
 jobs:
   release_merge:
