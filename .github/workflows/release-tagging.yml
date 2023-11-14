@@ -1,14 +1,12 @@
 name: Post Release PR Merge
 
-on: 
-  pull_request:
-    types:
-      - closed
-    branches:
-      - 'release/**'
+on:
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   release_merge:
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "RAN"
+      - run: echo "${{ github.event.review }}"
