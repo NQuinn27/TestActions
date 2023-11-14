@@ -1,15 +1,12 @@
 name: Post Release PR Merge
 
-on: 
-  workflow_dispatch:
-  pull_request:
-    # Patterns matched against refs/heads
-    branches:
-      - 'release/**'
-    types: [ closed ]
+on:
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   release_merge:
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "RAN"
+      - run: echo "${{ github.event.review }}"
