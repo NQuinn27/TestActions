@@ -6,7 +6,6 @@ on:
 
 jobs:
   release_merge:
-    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.review }}"
+      - run: echo "${{ github.event }}"
