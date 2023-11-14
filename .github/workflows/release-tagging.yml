@@ -12,4 +12,4 @@ jobs:
   release_merge:
     runs-on: ubuntu-latest
     steps:
-      run: echo "RAN"
+      - run: echo "RAN"
