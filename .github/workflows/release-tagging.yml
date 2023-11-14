@@ -3,11 +3,10 @@ name: Post Release PR Merge
 on:
   pull_request:
     types: [closed]
-    branches:
-      - release/next
 
 jobs:
   release_merge:
+    if:  startsWith(github.head_ref, 'release/') && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event }}"
+      - run: echo "MERGED"
